@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-class CartItem extends React.Component {
+//class CartItem extends React.Component {
+    const CartItem = (props) => {
     // constructor () {
     //     // call constructoer of component class
     //     super();
@@ -42,16 +43,16 @@ class CartItem extends React.Component {
     //     );
     // }
 
-    render () {
-        console.log('this.props',this.props);
+    //render () {
+        console.log('this.props',props);
         // oblect destructuring
-        const {price, title, qty} = this.props.product;
+        const {price, title, qty} = props.product;
         const {
             product , 
             onIncreaseQuantity, 
             onDecreaseQuantity, 
             onDeleteProduct
-            } = this.props;
+            } = props;
         return (
             <div class="cart-item">
                 <div className="left-block">
@@ -69,14 +70,14 @@ class CartItem extends React.Component {
                         className='action-icons'
                          src='https://cdn-icons-png.flaticon.com/512/992/992651.png' 
                         //  onClick = {this.increaseQuantity}
-                        onClick = {() => this.props.onIncreaseQuantity(this.props.product)}
+                        onClick = {() => props.onIncreaseQuantity(props.product)}
                          />
                         <img
                          alt="decrease" 
                          className='action-icons' 
                          src='https://cdn-icons-png.flaticon.com/512/992/992683.png' 
                          //onClick = {this.decreaseQuantity}
-                         onClick = {() => this.props.onDecreaseQuantity(this.props.product)}
+                         onClick = {() => props.onDecreaseQuantity(props.product)}
                          
                          /> 
                         <img 
@@ -89,7 +90,7 @@ class CartItem extends React.Component {
                 </div>
             </div> 
         )
-    }
+    //}
 }
 
 const styles = {
