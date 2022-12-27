@@ -56,7 +56,7 @@ import React from 'react';
         return (
             <div class="cart-item">
                 <div className="left-block">
-                    <img style={styles.image} />
+                    <img style={styles.image} src={product.img} />
                 </div>
                 <div className="right-block">
                     {/* <div style={ {fontSize: 25, fontFamily: 'sans-serif'}}> {this.state.title}</div> */}
