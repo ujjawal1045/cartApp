@@ -3,45 +3,7 @@ import React from 'react';
 
 //class CartItem extends React.Component {
     const CartItem = (props) => {
-    // constructor () {
-    //     // call constructoer of component class
-    //     super();
-    //     this.state = {
-    //         price: 9699,
-    //         title: 'Mobile phone',
-    //         qty:  4,
-    //         img: ''
-    //     }
-    // }
-
-    // increaseQuantity = () => {
-    //     //this.state.qty += 1;
-    //     console.log('this.state', this.state);
-    //     //setstate form1(passing state)
-    //     // this.setState({
-    //     //     qty: this.state.qty + 1
-    //     // });
-    //     // setstate form2(passing function) if previous state req use this
-    //     this.setState((prevState) => {
-    //         return {
-    //             qty : prevState.qty + 1
-    //         }
-    //     }, () => {} //passing this 2nd argument because this.state is asynchromous call and we dont know whwn it'll complete so this 2nd arg will only wxwcurte when prev is complete
-    //     );
-    // }
-
-    // decreaseQuantity = () => {
-    //     const { qty} = this.state;
-    //     if(qty == 0)
-    //     return;
-    //     console.log('this.state', this.state);
-    //     this.setState((prevState) => {
-    //         return {
-    //             qty : prevState.qty - 1
-    //         }
-    //     }, () => {}
-    //     );
-    // }
+    
 
     //render () {
         console.log('this.props',props);
