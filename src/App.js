@@ -111,11 +111,22 @@ handleDecreaseQuantity = (product) => {
     console.log('hey please decrease the quantity of', product);
     const {products} = this.state;
     const index = products.indexOf(product);
-    if(products[index].qty===0)
-    return
-    products[index].qty -= 1;
-    this.setState({
-        products
+     if(products[index].qty===0)
+     return
+    // products[index].qty -= 1;
+    // this.setState({
+    //     products
+    // })
+    const docRef = firebase.firestore().collection('products').doc(products[index].id);
+    docRef
+    .update({
+      qty: products[index].qty - 1
+    })
+    .then(() => {
+      console.log('quantity updated successfully');
+    })
+    .catch((error) => {
+      console.log('error', error);
     })
 }
 
