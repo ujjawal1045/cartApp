@@ -90,9 +90,20 @@ handleIncreaseQuantity = (product) => {
     console.log('hey, please increase quantity of ', product);
     const { products } = this.state;
     const index = products.indexOf(product);
-    products[index].qty = products[index].qty + 1;
-    this.setState({
-        products: products
+    // products[index].qty = products[index].qty + 1;
+    // this.setState({
+    //     products: products
+    // })
+    const docRef = firebase.firestore().collection('products').doc(products[index].id);
+    docRef
+    .update({
+      qty: products[index].qty + 1
+    })
+    .then(() =>{
+      console.log('quantity updated successfully');
+    })
+    .catch((error) => {
+      console.log('error', error);
     })
 }
 
@@ -139,7 +150,7 @@ addProduct = () => {
   .firestore()
   .collection('products')
   .add({
-    img: '',
+    img: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     price:29999,
     qty: 3,
     title:'washing machine'
