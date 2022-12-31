@@ -68,6 +68,8 @@ componentDidMount () {
   firebase
   .firestore()
   .collection('products')
+  //.where('price','>',1999)//where is used for querying the data we can also do multiple query by using two or more times where like.where('price','>',999) .where('title','==',mobile) 
+  .orderBy('price')//use to sort the data .orderBy('price','desc') for sorting data on the basis of price in decresing order
   .onSnapshot((snapshot) => {
     console.log(snapshot);
     snapshot.docs.map((doc) => {
@@ -189,7 +191,7 @@ addProduct = () => {
     return (
       <div className="App">
         <Navbar count={this.getCartCount()} />
-        <button onClick={this.addProduct} style={{padding: 20, fontSize:20}} >Add a Product</button>
+        <button onClick={this.addProduct} style={{padding: 20, fontSize:20,marginLeft:1000,marginTop:-300}} >Add a Product</button>
         <Cart
         products={products}
         onIncreaseQuantity = {this.handleIncreaseQuantity}
