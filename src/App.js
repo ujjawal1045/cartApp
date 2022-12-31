@@ -134,11 +134,30 @@ getCartTotal = () => {
   })
   return priceTotal;
 }
+addProduct = () => {
+  firebase
+  .firestore()
+  .collection('products')
+  .add({
+    img: '',
+    price:29999,
+    qty: 3,
+    title:'washing machine'
+  })
+  .then ((docRef) => {
+    console.log('product has been added',docRef);
+  })
+  .catch((error) =>{
+    console.log('error',error);
+  })
+
+}
   render() {
     const { products,loading } = this.state;
     return (
       <div className="App">
         <Navbar count={this.getCartCount()} />
+        <button onClick={this.addProduct} style={{padding: 20, fontSize:20}} >Add a Product</button>
         <Cart
         products={products}
         onIncreaseQuantity = {this.handleIncreaseQuantity}
